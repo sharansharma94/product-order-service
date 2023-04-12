@@ -18,3 +18,30 @@ Below are the two services and their corresponding operations based on the requi
 **Product categories:** Premium, Regular, and Budget
 
 **Order status values:** Placed, Dispatched, Completed, and Cancelled
+
+
+## Commands to test
+
+1. Get the product catalogue:
+
+```sh
+curl -X GET "http://localhost:8080/catalogue"
+```
+2. Place an order (example: product_id=1 and quantity=3):
+
+```sh 
+curl -X POST "http://localhost:8080/order" -d "product_id=1&quantity=3"
+```
+
+3. Get order details (example: orderID=1):
+```sh
+curl -X GET "http://localhost:8080/order/1"
+```
+4. Update order status (example: orderID=1 and new status=Dispatched):
+```sh
+curl -X PUT "http://localhost:8080/order/1/status" -d "status=Dispatched"
+```
+5. Update dispatch date (example: orderID=1 and dispatch_date=2023-04-20):
+```sh
+curl -X PUT "http://localhost:8080/order/1/dispatch" -d "dispatch_date=2023-04-20"
+```
